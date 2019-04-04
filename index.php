@@ -15,14 +15,7 @@
 	<div id="app">React has not rendered yet.</div>
 <!-- React Content -->
 
-<script>
-	ReactDOM.render(
-		<h1>How Much Cash Will You Get Back?</h1>,
-		document.getEleme
-	)
-</script>
-
-<script src="./app.js"></script>
+<script src="./app.js" type="text/jsx"></script>
 
 </body>
 </html>
