@@ -20,8 +20,12 @@ div {
 	
 }
 
-.cash-calc__form {
+.cash-calc__form-container {
 	border: 1px solid blue;
+}
+
+.cash-calc__form-item {
+	display: block;
 }
 
 .cash-calc__results {
