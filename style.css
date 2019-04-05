@@ -1,7 +1,39 @@
+/* Reset Styles */
+div {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Component Styles */
+
 .cash-calc {
-	border: 1px solid red;
+	/* border: 1px solid red; */
+}
+
+.cash-calc__body {
+	display: flex;
+	flex-direction: column;
+}
+
+.cash-calc__block {
+	
 }
 
 .cash-calc__form {
 	border: 1px solid blue;
+}
+
+.cash-calc__results {
+	border: 1px solid green;
+}
+
+
+@media screen and (min-width: 780px) {
+	.cash-calc__body {
+		flex-direction: row;
+	}
+	.cash-calc__block {
+		flex: 1;
+	}
 }
