@@ -12,11 +12,21 @@ div {
 }
 
 .cash-calc__body {
+	/* display: flex;
+	flex-direction: column; */
+}
+
+.cash-calc__form {
+	/* display: flex;
+	flex-direction: column; */
+}
+
+.cash-calc__inputs-results-wrapper {
 	display: flex;
 	flex-direction: column;
 }
 
-.cash-calc__block {
+.cash-calc__form-block {
 	
 }
 
@@ -34,14 +44,21 @@ div {
 
 .cash-calc__results {
 	border: 1px solid green;
+	text-align: center;
+}
+
+.cash-calc__submit-container {
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 }
 
 
 @media screen and (min-width: 780px) {
-	.cash-calc__body {
+	.cash-calc__inputs-results-wrapper {
 		flex-direction: row;
 	}
-	.cash-calc__block {
+	.cash-calc__form-block {
 		flex: 1;
 	}
 }

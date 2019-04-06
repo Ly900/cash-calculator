@@ -35,14 +35,14 @@
 		"cash-back": 1325
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 250000,
+		"max": 274999,
+		"cash-back": 1475
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 275000,
+		"max": 299999,
+		"cash-back": 1600
 	},
 	{
 		"min": 0,
