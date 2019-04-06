@@ -1,0 +1,117 @@
+[
+	{
+		"min": 0,
+		"max": 99999,
+		"cash-back": 400
+	},
+	{
+		"min": 100000,
+		"max": 124999,
+		"cash-back": 625
+	},
+	{
+		"min": 125000,
+		"max": 149999,
+		"cash-back": 775
+	},
+	{
+		"min": 150000,
+		"max": 174999,
+		"cash-back": 900
+	},
+	{
+		"min": 175000,
+		"max": 199999,
+		"cash-back": 1050
+	},
+	{
+		"min": 200000,
+		"max": 224999,
+		"cash-back": 1200
+	},
+	{
+		"min": 225000,
+		"max": 249999,
+		"cash-back": 1325
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	},
+	{
+		"min": 0,
+		"max": 0,
+		"cash-back": 0
+	}
+]

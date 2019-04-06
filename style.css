@@ -28,6 +28,10 @@ div {
 	display: block;
 }
 
+.cash-calc__input-section_selling {
+	display: none;
+}
+
 .cash-calc__results {
 	border: 1px solid green;
 }
