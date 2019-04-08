@@ -33,11 +33,18 @@ class CashCalcForm extends React.Component {
 		const re = /^\d+$/;
 		// Only update input value if it contains only digits.
 		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
-		if ( (re.test(rawValue)) ) {
+		console.log("rawValue: ", rawValue);
+		if ( (re.test(rawValue)) || rawValue === "") {
 			this.setState({
 				value: rawValue
 			});
 		}
+		if ( isNaN(rawValue) ) {
+			this.setState({
+				value: 0
+			});
+			console.log("not a number");
+		} 
 	}
 	handleSubmit = (event) => {
 		event.preventDefault();
