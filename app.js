@@ -26,19 +26,24 @@ class CashCalcForm extends React.Component {
 		super(props);
 		this.state = {
 			cashBack: 0,
-			value: 20000
+			value: 2000
 		};
 	};
-	handleCashBackButton = () => {
+	handleChange = (event) => {
+		const re = /^\d+$/;
+		// Only update input value if it contains only digits.
+		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
+		if ( (re.test(rawValue)) ) {
+			this.setState({
+				value: rawValue
+			});
+		}
+	}
+	handleSubmit = (event) => {
+		event.preventDefault();
 		this.setState({
-			cashBack: 50
+			cashBack: parseInt(this.state.cashBack) + parseInt(this.state.value)
 		});
-	}
-	handleChange(event) {
-
-	}
-	handleSubmit(event) {
-
 	}
 	render() {
 		return(
@@ -60,8 +65,9 @@ class CashCalcForm extends React.Component {
 
 						<div className="cash-calc__input-section cash-calc__input-section_buying">
 							<label className="cash-calc__form-item">Purchase Price</label>
-							<input className="cash-calc__form-item" type="text" value={this.state.value} onChange={this.handleChange}/>
+							<input className="cash-calc__form-item" type="text" value={parseInt(this.state.value).toLocaleString("en")} onChange={this.handleChange}/>
 						</div>
+						
 
 						<div className="cash-calc__input-section cash-calc__input-section_selling">
 							<label className="cash-calc__form-item cash-calc__selling">Selling Price</label>
@@ -74,8 +80,8 @@ class CashCalcForm extends React.Component {
 
 						<div className="cash-calc__block cash-calc__results">
 							<img src="https://via.placeholder.com/150"></img>
-							<p>Cash Back</p>
-							<div>{this.state.cashBack}</div>
+							<p class="cash-calc__cash-back">Cash Back</p>
+							<div>{parseInt(this.state.cashBack).toLocaleString("en")}</div>
 						</div>
 
 					</div>
@@ -83,7 +89,7 @@ class CashCalcForm extends React.Component {
 				</div>
 
 				<div className="cash-calc__submit-container">
-					<button className="cash-calc__submit-btn" onMouseOver={this.handleCashBackButton} type="submit">Calculate</button>
+					<button className="cash-calc__submit-btn" type="submit">Calculate</button>
 				</div>
 
 			</form>
