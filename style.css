@@ -38,6 +38,14 @@ div {
 	display: block;
 }
 
+.cash-calc__input-section {
+	margin: .5em 0 1.25em .5em;
+}
+
+.cash-calc__input-section:first-child {
+	margin-top: 1em;
+}
+
 .cash-calc__input-section_selling {
 	display: none;
 }

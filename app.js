@@ -21,76 +21,76 @@ const CashCalcBody = function() {
 	);
 }
 
-const CashCalcForm = function() {
-	return(
+class CashCalcForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			cashBack: 0,
+			value: 20000
+		};
+	};
+	handleCashBackButton = () => {
+		this.setState({
+			cashBack: 50
+		});
+	}
+	handleChange(event) {
+
+	}
+	handleSubmit(event) {
+
+	}
+	render() {
+		return(
 		<div className="cash-calc__form-container">
-			<form className="cash-calc__form">
+			<form className="cash-calc__form" onSubmit={this.handleSubmit}>
 
 				<div className="cash-calc__inputs-results-wrapper">
 
-				<div class="cash-calc__form-block cash-calc__inputs-block">
+					<div class="cash-calc__form-block cash-calc__inputs-block">
 
-					<div className="cash-calc__input-section cash-calc__input-section__prompt">
-						<label className="cash-calc__form-item">Buying or Selling</label>
-						<select className="cash-calc__form-item">
-							<option value="Buying">Buying</option>
-							<option value="Selling">Selling</option>
-							<option value="Both">Both</option>
-						</select>
+						<div className="cash-calc__input-section cash-calc__input-section__prompt">
+							<label className="cash-calc__form-item">Buying or Selling</label>
+							<select className="cash-calc__form-item">
+								<option value="Buying">Buying</option>
+								<option value="Selling">Selling</option>
+								<option value="Both">Both</option>
+							</select>
+						</div>
+
+						<div className="cash-calc__input-section cash-calc__input-section_buying">
+							<label className="cash-calc__form-item">Purchase Price</label>
+							<input className="cash-calc__form-item" type="text" value={this.state.value} onChange={this.handleChange}/>
+						</div>
+
+						<div className="cash-calc__input-section cash-calc__input-section_selling">
+							<label className="cash-calc__form-item cash-calc__selling">Selling Price</label>
+							<input className="cash-calc__form-item"/>
+						</div>
+					
 					</div>
 
-					<div className="cash-calc__input-section cash-calc__input-section_buying">
-						<label className="cash-calc__form-item">Purchase Price</label>
-						<select className="cash-calc__form-item">
-							<option>$10,000</option>
-							<option>$20,000</option>
-						</select>
-					</div>
+					<div class="cash-calc__form-block">
 
-					<div className="cash-calc__input-section cash-calc__input-section_selling">
-						<label className="cash-calc__form-item cash-calc__selling">Selling Price</label>
-						<select className="cash-calc__form-item">
-							<option>$10,000</option>
-							<option>$20,000</option>
-						</select>
-					</div>
-				
-				</div>
+						<div className="cash-calc__block cash-calc__results">
+							<img src="https://via.placeholder.com/150"></img>
+							<p>Cash Back</p>
+							<div>{this.state.cashBack}</div>
+						</div>
 
-				<div class="cash-calc__form-block">
-
-					<div className="cash-calc__block cash-calc__results">
-						<img src="https://via.placeholder.com/150"></img>
-						<p>Cash Back</p>
-						<div>$2,090</div>
 					</div>
 
 				</div>
-
-
-
-
-
-				</div>
-
-
 
 				<div className="cash-calc__submit-container">
-					<button className="cash-calc__submit-btn">Calculate</button>
+					<button className="cash-calc__submit-btn" onMouseOver={this.handleCashBackButton} type="submit">Calculate</button>
 				</div>
 
 			</form>
 		</div>
-	);
+		);
+	}
 }
-
-// const CashCalcResults = function() {
-// 	return(
-// 		<div className="cash-calc__block cash-calc__results">
-// 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-// 		</div>
-// 	);
-// }
 
 ReactDOM.render(
 	<CashCalculator/>,
