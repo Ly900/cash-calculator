@@ -57,6 +57,11 @@ class CashCalcForm extends React.Component {
 		const buyingOptionSelected = event.target.value === "Buying";
 		const sellingOptionSelected = event.target.value === "Selling";
 
+		this.setState({
+			cashBack: 0,
+			initialPrice: 2000
+		});
+
 		if ( buyingOptionSelected ) {
 			this.setState({
 				buyingOrSelling: "buying"
