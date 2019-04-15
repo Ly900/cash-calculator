@@ -93,6 +93,8 @@ class CashCalcForm extends React.Component {
 		const re = /^\d+$/;
 		let buying = buyingOrSelling === "buying";
 		let selling = buyingOrSelling === "selling";
+		let purchaseInput = event.target.name === "purchaseInputName";
+		let sellingInput = event.target.name === "sellingInputName";
 
 		// Remove commas and make a raw int value.
 		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
@@ -100,18 +102,28 @@ class CashCalcForm extends React.Component {
 
 		// Only update input value if it contains only digits.
 		if ( (re.test(rawValue)) || rawValue === "") {
-			if (buying || selling) {
+			if (purchaseInput) {
 				this.setState({
-					purchasePrice: rawValue,
+					purchasePrice: rawValue
+				});
+			} else if (sellingInput) {
+				this.setState({
 					sellingPrice: rawValue
 				});
 			}
 		}
+
 		if ( isNaN(rawValue) ) {
-			this.setState({
-				purchasePrice: 0,
-				sellingPrice: 0
-			});
+
+			if (purchaseInput) {
+				this.setState({
+					purchasePrice: 0
+				});
+			} else if (sellingInput) {
+				this.setState({
+					sellingPrice: 0
+				});
+			}
 
 		} 
 	}
