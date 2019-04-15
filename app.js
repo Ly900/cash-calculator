@@ -22,17 +22,13 @@ const CashCalcBody = function() {
 }
 
 const Input = function(props) {
-	// console.log(props);
 	let inputClass, inputLabel;
 	let inputToDisplay;
-	let buying = props.buyingOrSelling === "buying";
-	let selling = props.buyingOrSelling === "selling";
-	let both = props.buyingOrSelling === "both";
 
-	if (buying) {
+	if (props.buyingOrSelling === "buying") {
 		inputClass = "cash-calc__input-section_buying";
 		inputLabel = "Purchase Price";
-	} else if (selling) {
+	} else if (props.buyingOrSelling === "selling") {
 		inputClass = "cash-calc__input-section_selling";
 		inputLabel = "Selling Price";
 	} 
