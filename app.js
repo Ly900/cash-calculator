@@ -24,19 +24,22 @@ const CashCalcBody = function() {
 const Input = function(props) {
 	let inputClass, inputLabel;
 	let inputToDisplay;
+	console.log(props.price);
 
 	if (props.buyingOrSelling === "buying") {
 		inputClass = "cash-calc__input-section_buying";
 		inputLabel = "Purchase Price";
+		name = "purchase"
 	} else if (props.buyingOrSelling === "selling") {
 		inputClass = "cash-calc__input-section_selling";
 		inputLabel = "Selling Price";
+		name = "selling"
 	} 
 
 	inputToDisplay = 
 		<div className={"cash-calc__input-section " + (inputClass)}>
 			<label className="cash-calc__form-item">{inputLabel}</label>
-			<input className="cash-calc__form-item" type="text" name="purchase" value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
+			<input className="cash-calc__form-item" type="text" name={name} value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
 		</div>;
 
 	return(
@@ -49,7 +52,7 @@ class CashCalcForm extends React.Component {
 		super(props);
 		this.state = {
 			cashBack: 0,
-			purchasePrice: 2000,
+			purchasePrice: 1000,
 			sellingPrice: 2000,
 			buyingOrSelling: "buying"
 		};
@@ -61,7 +64,7 @@ class CashCalcForm extends React.Component {
 
 		this.setState({
 			cashBack: 0,
-			purchasePrice: 2000,
+			purchasePrice: 1000,
 			sellingPrice: 2000
 		});
 
