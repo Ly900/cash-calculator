@@ -22,7 +22,7 @@ const CashCalcBody = function() {
 }
 
 const Input = function(props) {
-	console.log(props);
+	// console.log(props);
 	let inputClass, inputLabel;
 
 	if (props.buyingOrSelling === "buying") {
@@ -32,7 +32,7 @@ const Input = function(props) {
 		inputClass = "cash-calc__input-section_selling";
 		inputLabel = "Selling Price";
 	} else {
-		console.log("both");
+		// console.log("both");
 	}
 
 	return(
@@ -79,12 +79,12 @@ class CashCalcForm extends React.Component {
 		console.log("rawValue: ", rawValue);
 		if ( (re.test(rawValue)) || rawValue === "") {
 			this.setState({
-				purchasePrice: rawValue
+				initialPrice: rawValue
 			});
 		}
 		if ( isNaN(rawValue) ) {
 			this.setState({
-				purchasePrice: 0
+				initialPrice: 0
 			});
 			console.log("not a number");
 		} 
@@ -93,7 +93,7 @@ class CashCalcForm extends React.Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		this.setState({
-			cashBack: parseInt(this.state.cashBack) + parseInt(this.state.purchasePrice)
+			cashBack: parseInt(this.state.cashBack) + parseInt(this.state.initialPrice)
 		});
 	}
 
