@@ -24,16 +24,16 @@ const CashCalcBody = function() {
 const Input = function(props) {
 	let inputClass, inputLabel;
 	let inputToDisplay;
-	console.log(props.price);
+	// console.log(props.price);
 
 	if (props.buyingOrSelling === "buying") {
 		inputClass = "cash-calc__input-section_buying";
 		inputLabel = "Purchase Price";
-		name = "purchase"
+		name = "purchaseInputName"
 	} else if (props.buyingOrSelling === "selling") {
 		inputClass = "cash-calc__input-section_selling";
 		inputLabel = "Selling Price";
-		name = "selling"
+		name = "sellingInputName"
 	} 
 
 	inputToDisplay = 
@@ -62,6 +62,10 @@ class CashCalcForm extends React.Component {
 		const buyingOptionSelected = event.target.value === "Buying";
 		const sellingOptionSelected = event.target.value === "Selling";
 
+		console.log("cashBack: ", this.state.cashBack);
+		console.log("purchasePrice: ", this.state.purchasePrice);
+		console.log("sellingPrice: ", this.state.sellingPrice);
+
 		this.setState({
 			cashBack: 0,
 			purchasePrice: 1000,
@@ -84,31 +88,53 @@ class CashCalcForm extends React.Component {
 	}
 
 	handleInputChange = (event, buyingOrSelling) => {
-		console.log(event.target.name);
+		console.log("target name:", event.target.name);
 		console.log(buyingOrSelling);
 		const re = /^\d+$/;
+		let buying = buyingOrSelling === "buying";
+		let selling = buyingOrSelling === "selling";
 
-		// Only update input value if it contains only digits.
+		// Remove commas and make a raw int value.
 		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
 		console.log("rawValue: ", rawValue);
+
+		// Only update input value if it contains only digits.
 		if ( (re.test(rawValue)) || rawValue === "") {
-			this.setState({
-				initialPrice: rawValue
-			});
+			if (buying || selling) {
+				this.setState({
+					purchasePrice: rawValue,
+					sellingPrice: rawValue
+				});
+			}
 		}
 		if ( isNaN(rawValue) ) {
 			this.setState({
-				initialPrice: 0
+				purchasePrice: 0,
+				sellingPrice: 0
 			});
-			console.log("not a number");
+
 		} 
 	}
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		this.setState({
-			cashBack: parseInt(this.state.cashBack) + parseInt(this.state.initialPrice)
-		});
+		let buying = this.state.buyingOrSelling === "buying";
+		let selling = this.state.buyingOrSelling === "selling";
+
+		if (buying) {
+			this.setState({
+				cashBack: parseInt(this.state.cashBack) + parseInt(this.state.purchasePrice)
+			});
+		} else if (selling) {
+			this.setState({
+				cashBack: parseInt(this.state.cashBack) + parseInt(this.state.sellingPrice)
+			});
+		} else {
+			this.setState({
+				cashBack: parseInt(this.state.cashBack) + parseInt(this.state.purchasePrice) + parseInt(this.state.sellingPrice)
+			});
+		}
+
 	}
 
 	render() {
@@ -116,9 +142,9 @@ class CashCalcForm extends React.Component {
 		let inputToDisplay;
 
 		if ( buyingOrSelling === "buying") {
-			inputToDisplay = <Input price={this.state.purchasePrice} buyingOrSelling={buyingOrSelling} onChange={this.handleInputChange}/>
+			inputToDisplay = <Input price={this.state.purchasePrice} buyingOrSelling={buyingOrSelling} onChange={(e) => {this.handleInputChange(event, buyingOrSelling)}}/>
 		} else if ( buyingOrSelling === "selling" ) {
-			inputToDisplay = <Input price={this.state.sellingPrice} buyingOrSelling={buyingOrSelling} onChange={this.handleInputChange}/>
+			inputToDisplay = <Input price={this.state.sellingPrice} buyingOrSelling={buyingOrSelling} onChange={(e) => {this.handleInputChange(event, buyingOrSelling)}}/>
 		} else {
 			inputToDisplay = 
 			<div>
