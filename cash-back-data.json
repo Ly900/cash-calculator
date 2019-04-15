@@ -45,73 +45,128 @@
 		"cash-back": 1600
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 300000,
+		"max": 324999,
+		"cash-back": 1750
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 325000,
+		"max": 349999,
+		"cash-back": 1900
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 350000,
+		"max": 374999,
+		"cash-back": 2025
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 375000,
+		"max": 399999,
+		"cash-back": 2175
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 400000,
+		"max": 424999,
+		"cash-back": 2300
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 425000,
+		"max": 449999,
+		"cash-back": 2450
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 450000,
+		"max": 474999,
+		"cash-back": 2600
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 475000,
+		"max": 499999,
+		"cash-back": 2725
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 500000,
+		"max": 524999,
+		"cash-back": 2875
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 525000,
+		"max": 549999,
+		"cash-back": 3000
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 550000,
+		"max": 574000,
+		"cash-back": 3150
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 575000,
+		"max": 599999,
+		"cash-back": 3300
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 600000,
+		"max": 624999,
+		"cash-back": 3425
 	},
 	{
-		"min": 0,
-		"max": 0,
-		"cash-back": 0
+		"min": 625000,
+		"max": 649999,
+		"cash-back": 3575
+	},
+	{
+		"min": 650000,
+		"max": 674999,
+		"cash-back": 3700
+	},
+	{
+		"min": 675000,
+		"max": 699999,
+		"cash-back": 3850
+	},
+	{
+		"min": 700000,
+		"max": 724000,
+		"cash-back": 4000
+	},
+	{
+		"min": 725000,
+		"max": 749999,
+		"cash-back": 4125
+	},
+	{
+		"min": 750000,
+		"max": 774999,
+		"cash-back": 4275
+	},
+	{
+		"min": 775000,
+		"max": 799999,
+		"cash-back": 4400
+	},
+	{
+		"min": 800000,
+		"max": 824999,
+		"cash-back": 4550
+	},
+	{
+		"min": 825000,
+		"max": 849999,
+		"cash-back": 4700
+	},
+	{
+		"min": 850000,
+		"max": 874999,
+		"cash-back": 4825
+	},
+	{
+		"min": 875000,
+		"max": 899999,
+		"cash-back": 4975
+	},
+	{
+		"min": 900000,
+		"max": 1000000,
+		"cash-back": 5050
 	}
 ]
