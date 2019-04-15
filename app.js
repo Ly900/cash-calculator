@@ -21,38 +21,103 @@ const CashCalcBody = function() {
 	);
 }
 
+const BuyingInput = function(props) {
+	return(
+		<div className="cash-calc__input-section cash-calc__input-section_buying">
+			<label className="cash-calc__form-item">Purchase Price</label>
+			<input className="cash-calc__form-item" type="text" value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
+		</div>
+	)
+}
+
+const SellingInput = function(props) {
+	return(
+		<div className="cash-calc__input-section cash-calc__input-section_selling">
+			<label className="cash-calc__form-item cash-calc__selling">Selling Price</label>
+			<input className="cash-calc__form-item" type="text" value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
+		</div>
+	)
+}
+
 class CashCalcForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			cashBack: 0,
-			value: 2000
+			purchasePrice: 2000,
+			sellingPrice: 2000,
+			buyingOrSelling: "buying"
 		};
 	};
-	handleChange = (event) => {
+
+	handleSelectChange = (event) => {
+		const buyingOptionSelected = event.target.value === "Buying";
+		const sellingOptionSelected = event.target.value === "Selling";
+		if ( buyingOptionSelected ) {
+			this.setState({
+				buyingOrSelling: "buying"
+			});
+		} else if ( sellingOptionSelected ) {
+			this.setState({
+				buyingOrSelling: "selling"
+			});
+		}
+	}
+
+	handlePurchaseChange = (event) => {
 		const re = /^\d+$/;
 		// Only update input value if it contains only digits.
 		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
 		console.log("rawValue: ", rawValue);
 		if ( (re.test(rawValue)) || rawValue === "") {
 			this.setState({
-				value: rawValue
+				purchasePrice: rawValue
 			});
 		}
 		if ( isNaN(rawValue) ) {
 			this.setState({
-				value: 0
+				purchasePrice: 0
 			});
 			console.log("not a number");
 		} 
 	}
+
+	handleSellingChange = (event) => {
+		const re = /^\d+$/;
+		// Only update input value if it contains only digits.
+		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
+		console.log("rawValue: ", rawValue);
+		if ( (re.test(rawValue)) || rawValue === "") {
+			this.setState({
+				sellingPrice: rawValue
+			});
+		}
+		if ( isNaN(rawValue) ) {
+			this.setState({
+				sellingPrice: 0
+			});
+			console.log("not a number");
+		} 
+	}
+
 	handleSubmit = (event) => {
 		event.preventDefault();
 		this.setState({
-			cashBack: parseInt(this.state.cashBack) + parseInt(this.state.value)
+			cashBack: parseInt(this.state.cashBack) + parseInt(this.state.purchasePrice)
 		});
 	}
+
 	render() {
+		let buyingOrSelling = this.state.buyingOrSelling;
+		let inputToDisplay;
+
+		if (buyingOrSelling === "buying") {
+			inputToDisplay = <BuyingInput price={this.purchasePrice} onChange={this.handlePurchaseChange}/>
+		} 
+		else if (buyingOrSelling === "selling") {
+			inputToDisplay = <SellingInput price={this.sellingPrice} onChange={this.handleSellingChange}/>
+		}
+
 		return(
 		<div className="cash-calc__form-container">
 			<form className="cash-calc__form" onSubmit={this.handleSubmit}>
@@ -63,23 +128,24 @@ class CashCalcForm extends React.Component {
 
 						<div className="cash-calc__input-section cash-calc__input-section__prompt">
 							<label className="cash-calc__form-item">Buying or Selling</label>
-							<select className="cash-calc__form-item">
+							<select className="cash-calc__form-item" onChange={this.handleSelectChange}>
 								<option value="Buying">Buying</option>
 								<option value="Selling">Selling</option>
 								<option value="Both">Both</option>
 							</select>
 						</div>
 
-						<div className="cash-calc__input-section cash-calc__input-section_buying">
+						{/* <div className="cash-calc__input-section cash-calc__input-section_buying">
 							<label className="cash-calc__form-item">Purchase Price</label>
-							<input className="cash-calc__form-item" type="text" value={parseInt(this.state.value).toLocaleString("en")} onChange={this.handleChange}/>
+							<input className="cash-calc__form-item" type="text" value={parseInt(this.state.purchasePrice).toLocaleString("en")} onChange={this.handlePurchaseChange}/>
 						</div>
-						
 
 						<div className="cash-calc__input-section cash-calc__input-section_selling">
 							<label className="cash-calc__form-item cash-calc__selling">Selling Price</label>
-							<input className="cash-calc__form-item"/>
-						</div>
+							<input className="cash-calc__form-item" type="text" value={parseInt(this.state.sellingPrice).toLocaleString("en")} onChange={this.handleSellingChange}/>
+						</div> */}
+
+						{inputToDisplay}
 					
 					</div>
 

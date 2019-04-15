@@ -47,7 +47,7 @@ div {
 }
 
 .cash-calc__input-section_selling {
-	display: none;
+	/* display: none; */
 }
 
 .cash-calc__results {
