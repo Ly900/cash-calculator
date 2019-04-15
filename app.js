@@ -22,6 +22,7 @@ const CashCalcBody = function() {
 }
 
 const BuyingInput = function(props) {
+	console.log(props);
 	return(
 		<div className="cash-calc__input-section cash-calc__input-section_buying">
 			<label className="cash-calc__form-item">Purchase Price</label>
@@ -117,9 +118,9 @@ class CashCalcForm extends React.Component {
 		let inputToDisplay;
 
 		if (buyingOrSelling === "buying") {
-			inputToDisplay = <BuyingInput price={this.purchasePrice} onChange={this.handlePurchaseChange}/>
+			inputToDisplay = <BuyingInput price={this.state.purchasePrice} onChange={this.handlePurchaseChange}/>
 		} else if (buyingOrSelling === "selling") {
-			inputToDisplay = <SellingInput price={this.sellingPrice} onChange={this.handleSellingChange}/>
+			inputToDisplay = <SellingInput price={this.state.sellingPrice} onChange={this.handleSellingChange}/>
 		} else {
 			inputToDisplay =
 				<div>
