@@ -53,6 +53,7 @@ class CashCalcForm extends React.Component {
 	handleSelectChange = (event) => {
 		const buyingOptionSelected = event.target.value === "Buying";
 		const sellingOptionSelected = event.target.value === "Selling";
+
 		if ( buyingOptionSelected ) {
 			this.setState({
 				buyingOrSelling: "buying"
@@ -60,6 +61,10 @@ class CashCalcForm extends React.Component {
 		} else if ( sellingOptionSelected ) {
 			this.setState({
 				buyingOrSelling: "selling"
+			});
+		} else {
+			this.setState({
+				buyingOrSelling: "both"
 			});
 		}
 	}
@@ -113,9 +118,14 @@ class CashCalcForm extends React.Component {
 
 		if (buyingOrSelling === "buying") {
 			inputToDisplay = <BuyingInput price={this.purchasePrice} onChange={this.handlePurchaseChange}/>
-		} 
-		else if (buyingOrSelling === "selling") {
+		} else if (buyingOrSelling === "selling") {
 			inputToDisplay = <SellingInput price={this.sellingPrice} onChange={this.handleSellingChange}/>
+		} else {
+			inputToDisplay =
+				<div>
+					<BuyingInput price={this.purchasePrice} onChange={this.handlePurchaseChange}/>
+					<SellingInput price={this.sellingPrice} onChange={this.handleSellingChange}/>
+				</div>
 		}
 
 		return(
@@ -134,16 +144,6 @@ class CashCalcForm extends React.Component {
 								<option value="Both">Both</option>
 							</select>
 						</div>
-
-						{/* <div className="cash-calc__input-section cash-calc__input-section_buying">
-							<label className="cash-calc__form-item">Purchase Price</label>
-							<input className="cash-calc__form-item" type="text" value={parseInt(this.state.purchasePrice).toLocaleString("en")} onChange={this.handlePurchaseChange}/>
-						</div>
-
-						<div className="cash-calc__input-section cash-calc__input-section_selling">
-							<label className="cash-calc__form-item cash-calc__selling">Selling Price</label>
-							<input className="cash-calc__form-item" type="text" value={parseInt(this.state.sellingPrice).toLocaleString("en")} onChange={this.handleSellingChange}/>
-						</div> */}
 
 						{inputToDisplay}
 					
