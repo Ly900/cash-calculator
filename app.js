@@ -91,8 +91,8 @@ class CashCalcForm extends React.Component {
 		console.log("target name:", event.target.name);
 		console.log(buyingOrSelling);
 		const re = /^\d+$/;
-		let buying = buyingOrSelling === "buying";
-		let selling = buyingOrSelling === "selling";
+		// let buying = buyingOrSelling === "buying";
+		// let selling = buyingOrSelling === "selling";
 		let purchaseInput = event.target.name === "purchaseInputName";
 		let sellingInput = event.target.name === "sellingInputName";
 
@@ -154,14 +154,14 @@ class CashCalcForm extends React.Component {
 		let inputToDisplay;
 
 		if ( buyingOrSelling === "buying") {
-			inputToDisplay = <Input price={this.state.purchasePrice} buyingOrSelling={buyingOrSelling} onChange={(e) => {this.handleInputChange(event, buyingOrSelling)}}/>
+			inputToDisplay = <Input price={this.state.purchasePrice} buyingOrSelling={buyingOrSelling} onChange={(e) => {this.handleInputChange(event)}}/>
 		} else if ( buyingOrSelling === "selling" ) {
-			inputToDisplay = <Input price={this.state.sellingPrice} buyingOrSelling={buyingOrSelling} onChange={(e) => {this.handleInputChange(event, buyingOrSelling)}}/>
+			inputToDisplay = <Input price={this.state.sellingPrice} buyingOrSelling={buyingOrSelling} onChange={(e) => {this.handleInputChange(event)}}/>
 		} else {
 			inputToDisplay = 
 			<div>
-				<Input price={this.state.purchasePrice} buyingOrSelling="buying" onChange={(e) => {this.handleInputChange(event, buyingOrSelling)}}/>
-				<Input price={this.state.sellingPrice} buyingOrSelling="selling" onChange={(e) => {this.handleInputChange(event, buyingOrSelling)}}/>
+				<Input price={this.state.purchasePrice} buyingOrSelling="buying" onChange={(e) => {this.handleInputChange(event)}}/>
+				<Input price={this.state.sellingPrice} buyingOrSelling="selling" onChange={(e) => {this.handleInputChange(event)}}/>
 			</div>	
 		}
 
