@@ -21,20 +21,23 @@ const CashCalcBody = function() {
 	);
 }
 
-const BuyingInput = function(props) {
+const Input = function(props) {
 	console.log(props);
-	return(
-		<div className="cash-calc__input-section cash-calc__input-section_buying">
-			<label className="cash-calc__form-item">Purchase Price</label>
-			<input className="cash-calc__form-item" type="text" value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
-		</div>
-	)
-}
+	let inputClass, inputLabel;
 
-const SellingInput = function(props) {
+	if (props.buyingOrSelling === "buying") {
+		inputClass = "cash-calc__input-section_buying";
+		inputLabel = "Purchase Price";
+	} else if (props.buyingOrSelling === "selling") {
+		inputClass = "cash-calc__input-section_selling";
+		inputLabel = "Selling Price";
+	} else {
+		console.log("both");
+	}
+
 	return(
-		<div className="cash-calc__input-section cash-calc__input-section_selling">
-			<label className="cash-calc__form-item cash-calc__selling">Selling Price</label>
+		<div className={"cash-calc__input-section " + (inputClass)}>
+			<label className="cash-calc__form-item">{inputLabel}</label>
 			<input className="cash-calc__form-item" type="text" value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
 		</div>
 	)
@@ -45,8 +48,7 @@ class CashCalcForm extends React.Component {
 		super(props);
 		this.state = {
 			cashBack: 0,
-			purchasePrice: 2000,
-			sellingPrice: 2000,
+			initialPrice: 2000,
 			buyingOrSelling: "buying"
 		};
 	};
@@ -70,7 +72,7 @@ class CashCalcForm extends React.Component {
 		}
 	}
 
-	handlePurchaseChange = (event) => {
+	handleInputChange = (event) => {
 		const re = /^\d+$/;
 		// Only update input value if it contains only digits.
 		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
@@ -88,24 +90,6 @@ class CashCalcForm extends React.Component {
 		} 
 	}
 
-	handleSellingChange = (event) => {
-		const re = /^\d+$/;
-		// Only update input value if it contains only digits.
-		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
-		console.log("rawValue: ", rawValue);
-		if ( (re.test(rawValue)) || rawValue === "") {
-			this.setState({
-				sellingPrice: rawValue
-			});
-		}
-		if ( isNaN(rawValue) ) {
-			this.setState({
-				sellingPrice: 0
-			});
-			console.log("not a number");
-		} 
-	}
-
 	handleSubmit = (event) => {
 		event.preventDefault();
 		this.setState({
@@ -117,16 +101,14 @@ class CashCalcForm extends React.Component {
 		let buyingOrSelling = this.state.buyingOrSelling;
 		let inputToDisplay;
 
-		if (buyingOrSelling === "buying") {
-			inputToDisplay = <BuyingInput price={this.state.purchasePrice} onChange={this.handlePurchaseChange}/>
-		} else if (buyingOrSelling === "selling") {
-			inputToDisplay = <SellingInput price={this.state.sellingPrice} onChange={this.handleSellingChange}/>
+		if ( buyingOrSelling !== "both") {
+			inputToDisplay = <Input price={this.state.initialPrice} buyingOrSelling={buyingOrSelling} onChange={this.handleInputChange}/>
 		} else {
-			inputToDisplay =
-				<div>
-					<BuyingInput price={this.purchasePrice} onChange={this.handlePurchaseChange}/>
-					<SellingInput price={this.sellingPrice} onChange={this.handleSellingChange}/>
-				</div>
+			inputToDisplay = 
+			<div>
+				<Input price={this.state.purchasePrice} buyingOrSelling={buyingOrSelling} onChange={this.handleInputChange}/>
+				<Input price={this.state.sellingPrice} buyingOrSelling={buyingOrSelling} onChange={this.handleInputChange}/>
+			</div>	
 		}
 
 		return(
