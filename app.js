@@ -54,9 +54,24 @@ class CashCalcForm extends React.Component {
 			cashBack: 0,
 			purchasePrice: 1000,
 			sellingPrice: 2000,
-			buyingOrSelling: "buying"
+			buyingOrSelling: "buying",
+			data: {},
+			dataLoaded: false
 		};
 	};
+
+	componentDidMount(){
+		fetch('./cash-back-data.json')
+		.then(response => response.json())
+		.then(myJson => {
+			// console.log(myJson);
+			// console.log(typeof(myJson));
+			this.setState({
+				data: myJson,
+				dataLoaded: true
+			});
+		});
+	}
 
 	handleSelectChange = (event) => {
 		const buyingOptionSelected = event.target.value === "Buying";
@@ -133,6 +148,8 @@ class CashCalcForm extends React.Component {
 		let buying = this.state.buyingOrSelling === "buying";
 		let selling = this.state.buyingOrSelling === "selling";
 
+
+
 		if (buying) {
 			this.setState({
 				cashBack: parseInt(this.state.cashBack) + parseInt(this.state.purchasePrice)
@@ -165,45 +182,68 @@ class CashCalcForm extends React.Component {
 			</div>	
 		}
 
+		// let {cashData} = this.state;
+		// let cashData = !this.state.dataLoaded ? 'Loading...' : this.state.data;
+		// console.log(rendered);
+		let myData = JSON.stringify(this.state.data);
+		myData = (JSON.parse(myData));
+		// console.log(myData);
+		let rendered = !this.state.dataLoaded ? 'Loading' : myData;
+		console.log("rendered: ", rendered);
+
 		return(
-		<div className="cash-calc__form-container">
-			<form className="cash-calc__form" onSubmit={this.handleSubmit}>
 
-				<div className="cash-calc__inputs-results-wrapper">
+			<div className="cash-calc__form-container">
+				<form className="cash-calc__form" onSubmit={this.handleSubmit}>
 
-					<div class="cash-calc__form-block cash-calc__inputs-block">
+					<div className="cash-calc__inputs-results-wrapper">
 
-						<div className="cash-calc__input-section cash-calc__input-section__prompt">
-							<label className="cash-calc__form-item">Buying or Selling</label>
-							<select className="cash-calc__form-item" onChange={this.handleSelectChange}>
-								<option value="Buying">Buying</option>
-								<option value="Selling">Selling</option>
-								<option value="Both">Both</option>
-							</select>
+						<div class="cash-calc__form-block cash-calc__inputs-block">
+
+							<div className="cash-calc__input-section cash-calc__input-section__prompt">
+								<label className="cash-calc__form-item">Buying or Selling</label>
+								<select className="cash-calc__form-item" onChange={this.handleSelectChange}>
+									<option value="Buying">Buying</option>
+									<option value="Selling">Selling</option>
+									<option value="Both">Both</option>
+								</select>
+							</div>
+
+							{inputToDisplay}
+						
 						</div>
 
-						{inputToDisplay}
-					
-					</div>
+						<div class="cash-calc__form-block">
 
-					<div class="cash-calc__form-block">
+							<div className="cash-calc__block cash-calc__results">
+								<img src="https://via.placeholder.com/150"></img>
+								<p class="cash-calc__cash-back">Cash Back</p>
+								<div>
+									{Object.keys(rendered).map(item => {
+										return (
+											<p key={rendered[item].min}>
+												<span>{rendered[item].min}</span>
+												{/* <span>{item.max}</span> */}
+												{/* <span>{item['cash-back']}</span> */}
+											</p>
+										)
+										}
+									 )}
 
-						<div className="cash-calc__block cash-calc__results">
-							<img src="https://via.placeholder.com/150"></img>
-							<p class="cash-calc__cash-back">Cash Back</p>
-							<div>{parseInt(this.state.cashBack).toLocaleString("en")}</div>
+								</div>
+								<div>{parseInt(this.state.cashBack).toLocaleString("en")}</div>
+							</div>
+
 						</div>
 
 					</div>
 
-				</div>
+					<div className="cash-calc__submit-container">
+						<button className="cash-calc__submit-btn" type="submit">Calculate</button>
+					</div>
 
-				<div className="cash-calc__submit-container">
-					<button className="cash-calc__submit-btn" type="submit">Calculate</button>
-				</div>
-
-			</form>
-		</div>
+				</form>
+			</div>
 		);
 	}
 }
