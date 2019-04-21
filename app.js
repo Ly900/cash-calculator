@@ -148,32 +148,48 @@ class CashCalcForm extends React.Component {
 		let buying = this.state.buyingOrSelling === "buying";
 		let selling = this.state.buyingOrSelling === "selling";
 		let cashBack;
+		let finalCashBack;
 
 		// console.log(this.state.purchasePrice);
 		// console.log(cashBack);
+		console.log(this.state.data);
 
-		if (buying) {
-			cashBack = this.state.data.filter(item => {
-				return item.min <= this.state.purchasePrice && item.max >= this.state.purchasePrice;
-			});
-			this.setState({
-				cashBack: cashBack[0]["cash-back"]
-			});
-		} else if (selling) {
-			cashBack = this.state.data.filter(item => {
-				return item.min <= this.state.sellingPrice && item.max >= this.state.sellingPrice;
-			});
-			this.setState({
-				cashBack: cashBack[0]["cash-back"]
-			});
-		} else {
-			// cashBack = this.state.data.filter(item => {
-			// 	return item.min <= this.state.sellingPrice && item.max >= this.state.sellingPrice;
-			// });
-			this.setState({
-				cashBack: cashBack[0]["cash-back"]
-			});
+		function getCashBack(buyingOrSelling, self) {
+			console.log("buyingOrSelling: ", buyingOrSelling);
+			let price = buying ? self.state.purchasePrice : self.state.sellingPrice;
+			return function(item) {
+				return item.min <= price && item.max >= price;
+			}
+			// return item.min <= this.state.purchasePrice && item.max >= this.state.purchasePrice;
 		}
+
+		finalCashBack = this.state.data.filter(getCashBack(this.state.buyingOrSelling, this));
+		console.log("finalCashBack: ", finalCashBack);
+		finalCashBack = finalCashBack[0]["cash-back"];
+
+		// if (buying) {
+		// 	cashBack = this.state.data.filter(getCashBack(buying));
+		// 	// console.log(cashBack);
+		// 	// cashBack = cashBack === undefined || cashBack.length === 0 ? 5050 : cashBack[0]["cash-back"];
+		// } else if (selling) {
+		// 	cashBack = this.state.data.filter(item => {
+		// 		return item.min <= this.state.sellingPrice && item.max >= this.state.sellingPrice;
+		// 	});
+		// 	cashBack = cashBack === undefined || cashBack.length === 0 ? 5050 : cashBack[0]["cash-back"];
+		// } else {
+		// 	let purchaseCashBack = this.state.data.filter(item => {
+		// 		return item.min <= this.state.purchasePrice && item.max >= this.state.purchasePrice;
+		// 	});
+		// 	purchaseCashBack = purchaseCashBack === undefined || purchaseCashBack.length === 0 ? 5050 : purchaseCashBack[0]["cash-back"];
+		// 	let sellingCashBack = this.state.data.filter(item => {
+		// 		return item.min <= this.state.sellingPrice && item.max >= this.state.sellingPrice;
+		// 	});
+		// 	sellingCashBack = sellingCashBack === undefined || sellingCashBack.length === 0 ? 5050 : sellingCashBack[0]["cash-back"];
+		// 	cashBack = purchaseCashBack[0]["cash-back"] + sellingCashBack[0]["cash-back"];
+		// }
+		this.setState({
+			cashBack: finalCashBack
+		});
 
 	}
 
