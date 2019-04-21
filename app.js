@@ -24,7 +24,6 @@ const CashCalcBody = function() {
 const Input = function(props) {
 	let inputClass, inputLabel;
 	let inputToDisplay;
-	// console.log(props.price);
 
 	if (props.buyingOrSelling === "buying") {
 		inputClass = "cash-calc__input-section_buying";
@@ -65,8 +64,6 @@ class CashCalcForm extends React.Component {
 		fetch('./cash-back-data.json')
 		.then(response => response.json())
 		.then(myJson => {
-			// console.log(myJson);
-			// console.log(typeof(myJson));
 			this.setState({
 				data: myJson,
 				dataLoaded: true
@@ -77,10 +74,6 @@ class CashCalcForm extends React.Component {
 	handleSelectChange = (event) => {
 		const buyingOptionSelected = event.target.value === "Buying";
 		const sellingOptionSelected = event.target.value === "Selling";
-
-		// console.log("cashBack: ", this.state.cashBack);
-		// console.log("purchasePrice: ", this.state.purchasePrice);
-		// console.log("sellingPrice: ", this.state.sellingPrice);
 
 		this.setState({
 			cashBack: 0,
@@ -103,18 +96,13 @@ class CashCalcForm extends React.Component {
 		}
 	}
 
-	handleInputChange = (event, buyingOrSelling) => {
-		// console.log("target name:", event.target.name);
-		// console.log(buyingOrSelling);
+	handleInputChange = (event) => {
 		const re = /^\d+$/;
-		// let buying = buyingOrSelling === "buying";
-		// let selling = buyingOrSelling === "selling";
 		let purchaseInput = event.target.name === "purchaseInputName";
 		let sellingInput = event.target.name === "sellingInputName";
 
 		// Remove commas and make a raw int value.
 		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
-		// console.log("rawValue: ", rawValue);
 
 		// Only update input value if it contains only digits.
 		if ( (re.test(rawValue)) || rawValue === "") {
@@ -238,6 +226,3 @@ ReactDOM.render(
 	<CashCalculator/>,
 	document.getElementById("app")
 );
-
-{/* <h1>How Much Cash Can You Get Back?</h1> */}
-{/* <p>Plug in your info to calculate your earnings.</p> */}
