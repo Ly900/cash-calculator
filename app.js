@@ -52,8 +52,8 @@ class CashCalcForm extends React.Component {
 		super(props);
 		this.state = {
 			cashBack: 0,
-			purchasePrice: 1000,
-			sellingPrice: 2000,
+			purchasePrice: 0,
+			sellingPrice: 0,
 			buyingOrSelling: "buying",
 			data: {},
 			dataLoaded: false
@@ -77,14 +77,14 @@ class CashCalcForm extends React.Component {
 		const buyingOptionSelected = event.target.value === "Buying";
 		const sellingOptionSelected = event.target.value === "Selling";
 
-		console.log("cashBack: ", this.state.cashBack);
-		console.log("purchasePrice: ", this.state.purchasePrice);
-		console.log("sellingPrice: ", this.state.sellingPrice);
+		// console.log("cashBack: ", this.state.cashBack);
+		// console.log("purchasePrice: ", this.state.purchasePrice);
+		// console.log("sellingPrice: ", this.state.sellingPrice);
 
 		this.setState({
 			cashBack: 0,
-			purchasePrice: 1000,
-			sellingPrice: 2000
+			purchasePrice: 0,
+			sellingPrice: 0
 		});
 
 		if ( buyingOptionSelected ) {
@@ -103,8 +103,8 @@ class CashCalcForm extends React.Component {
 	}
 
 	handleInputChange = (event, buyingOrSelling) => {
-		console.log("target name:", event.target.name);
-		console.log(buyingOrSelling);
+		// console.log("target name:", event.target.name);
+		// console.log(buyingOrSelling);
 		const re = /^\d+$/;
 		// let buying = buyingOrSelling === "buying";
 		// let selling = buyingOrSelling === "selling";
@@ -113,7 +113,7 @@ class CashCalcForm extends React.Component {
 
 		// Remove commas and make a raw int value.
 		let rawValue = parseInt(event.target.value.replace(/,/g, ""));
-		console.log("rawValue: ", rawValue);
+		// console.log("rawValue: ", rawValue);
 
 		// Only update input value if it contains only digits.
 		if ( (re.test(rawValue)) || rawValue === "") {
@@ -147,20 +147,31 @@ class CashCalcForm extends React.Component {
 		event.preventDefault();
 		let buying = this.state.buyingOrSelling === "buying";
 		let selling = this.state.buyingOrSelling === "selling";
+		let cashBack;
 
-
+		// console.log(this.state.purchasePrice);
+		// console.log(cashBack);
 
 		if (buying) {
+			cashBack = this.state.data.filter(item => {
+				return item.min <= this.state.purchasePrice && item.max >= this.state.purchasePrice;
+			});
 			this.setState({
-				cashBack: parseInt(this.state.cashBack) + parseInt(this.state.purchasePrice)
+				cashBack: cashBack[0]["cash-back"]
 			});
 		} else if (selling) {
+			cashBack = this.state.data.filter(item => {
+				return item.min <= this.state.sellingPrice && item.max >= this.state.sellingPrice;
+			});
 			this.setState({
-				cashBack: parseInt(this.state.cashBack) + parseInt(this.state.sellingPrice)
+				cashBack: cashBack[0]["cash-back"]
 			});
 		} else {
+			// cashBack = this.state.data.filter(item => {
+			// 	return item.min <= this.state.sellingPrice && item.max >= this.state.sellingPrice;
+			// });
 			this.setState({
-				cashBack: parseInt(this.state.cashBack) + parseInt(this.state.purchasePrice) + parseInt(this.state.sellingPrice)
+				cashBack: cashBack[0]["cash-back"]
 			});
 		}
 
@@ -189,7 +200,10 @@ class CashCalcForm extends React.Component {
 		myData = (JSON.parse(myData));
 		// console.log(myData);
 		let rendered = !this.state.dataLoaded ? 'Loading' : myData;
-		console.log("rendered: ", rendered);
+		// console.log("rendered: ", rendered);
+		// const renderedData = Object.map((item) => {
+
+		// })
 
 		return(
 
@@ -218,19 +232,15 @@ class CashCalcForm extends React.Component {
 							<div className="cash-calc__block cash-calc__results">
 								<img src="https://via.placeholder.com/150"></img>
 								<p class="cash-calc__cash-back">Cash Back</p>
-								<div>
+								{/* <div>
 									{Object.keys(rendered).map(item => {
 										return (
-											<p key={rendered[item].min}>
+											<p>
 												<span>{rendered[item].min}</span>
-												{/* <span>{item.max}</span> */}
-												{/* <span>{item['cash-back']}</span> */}
 											</p>
-										)
-										}
+										)}
 									 )}
-
-								</div>
+								</div> */}
 								<div>{parseInt(this.state.cashBack).toLocaleString("en")}</div>
 							</div>
 
