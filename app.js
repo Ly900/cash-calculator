@@ -55,6 +55,7 @@ class CashCalcForm extends React.Component {
 			purchasePrice: 0,
 			sellingPrice: 0,
 			buyingOrSelling: "buying",
+			maxCashBack: 5050,
 			data: {},
 			dataLoaded: false
 		};
@@ -147,7 +148,6 @@ class CashCalcForm extends React.Component {
 		event.preventDefault();
 		let buying = this.state.buyingOrSelling === "buying";
 		let selling = this.state.buyingOrSelling === "selling";
-		let cashBack;
 		let finalCashBack;
 
 		function getCashBack(buyingOrSelling, self) {
@@ -159,11 +159,13 @@ class CashCalcForm extends React.Component {
 
 		if (buying || selling) {
 			finalCashBack = this.state.data.filter(getCashBack(this.state.buyingOrSelling, this));
-			finalCashBack = finalCashBack[0]["cash-back"];
+			finalCashBack = finalCashBack === undefined || finalCashBack.length === 0 ? this.state.maxCashBack : finalCashBack[0]["cash-back"];
 		} else {
 			let buyingCashBack = this.state.data.filter(getCashBack("buying", this));
+			buyingCashBack = buyingCashBack === undefined || buyingCashBack.length === 0 ? this.state.maxCashBack : buyingCashBack[0]["cash-back"];
 			let sellingCashBack = this.state.data.filter(getCashBack("selling", this));
-			finalCashBack = buyingCashBack[0]["cash-back"] + sellingCashBack[0]["cash-back"];
+			sellingCashBack = sellingCashBack === undefined || sellingCashBack.length === 0 ? this.state.maxCashBack : sellingCashBack[0]["cash-back"];
+			finalCashBack = buyingCashBack + sellingCashBack;
 		}
 
 		this.setState({
@@ -187,18 +189,6 @@ class CashCalcForm extends React.Component {
 				<Input price={this.state.sellingPrice} buyingOrSelling="selling" onChange={(e) => {this.handleInputChange(event)}}/>
 			</div>	
 		}
-
-		// let {cashData} = this.state;
-		// let cashData = !this.state.dataLoaded ? 'Loading...' : this.state.data;
-		// console.log(rendered);
-		let myData = JSON.stringify(this.state.data);
-		myData = (JSON.parse(myData));
-		// console.log(myData);
-		let rendered = !this.state.dataLoaded ? 'Loading' : myData;
-		// console.log("rendered: ", rendered);
-		// const renderedData = Object.map((item) => {
-
-		// })
 
 		return(
 
@@ -227,15 +217,6 @@ class CashCalcForm extends React.Component {
 							<div className="cash-calc__block cash-calc__results">
 								<img src="https://via.placeholder.com/150"></img>
 								<p class="cash-calc__cash-back">Cash Back</p>
-								{/* <div>
-									{Object.keys(rendered).map(item => {
-										return (
-											<p>
-												<span>{rendered[item].min}</span>
-											</p>
-										)}
-									 )}
-								</div> */}
 								<div>{parseInt(this.state.cashBack).toLocaleString("en")}</div>
 							</div>
 
