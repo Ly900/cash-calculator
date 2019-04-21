@@ -2,7 +2,7 @@ const CashCalculator = function() {
 	return(
 		<div className="cash-calc">
 			<CashCalcHeading/>
-			<CashCalcBody/>
+			<CashCalcForm/>
 		</div>
 	);
 }
@@ -12,12 +12,6 @@ const CashCalcHeading = function() {
 			<h1>How Much Cash Can You Get Back?</h1>
 			<p>Plug in your info to calculate your earnings.</p>
 		</div>
-	);
-}
-
-const CashCalcBody = function() {
-	return(
-		<CashCalcForm/>
 	);
 }
 
