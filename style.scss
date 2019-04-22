@@ -84,10 +84,12 @@ body {
 	&__form-select,
 	&__form-input {
 		width: 95%;
+		margin: 0 auto;
 		font-size: 1.5rem;
 		font-family: 'Nunito', sans-serif;
 		@media screen and (min-width: 780px) {
 			width: 75%;
+			margin: unset;
 		}
 	}
 	&__form-select {
@@ -117,7 +119,10 @@ body {
 		text-align: center;
 	}
 	&__input-section {
-		margin: .5em 0 1.25em .5em;
+		margin: 0 0 .5em 0;
+		@media screen and (min-width: 780px) {
+			margin: .5em 0 1.25em .5em;
+		}
 	}
 	&__submit-container {
 		margin: 0 auto;

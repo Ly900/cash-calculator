@@ -61,11 +61,13 @@ body {
     text-indent: 10px; }
   .cash-calc__form-select, .cash-calc__form-input {
     width: 95%;
+    margin: 0 auto;
     font-size: 1.5rem;
     font-family: 'Nunito', sans-serif; }
     @media screen and (min-width: 780px) {
       .cash-calc__form-select, .cash-calc__form-input {
-        width: 75%; } }
+        width: 75%;
+        margin: unset; } }
   .cash-calc__form-select {
     height: 50px;
     padding: 15px;
@@ -88,7 +90,10 @@ body {
   .cash-calc__results {
     text-align: center; }
   .cash-calc__input-section {
-    margin: .5em 0 1.25em .5em; }
+    margin: 0 0 .5em 0; }
+    @media screen and (min-width: 780px) {
+      .cash-calc__input-section {
+        margin: .5em 0 1.25em .5em; } }
   .cash-calc__submit-container {
     margin: 0 auto;
     width: 100%;
