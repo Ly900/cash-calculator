@@ -7,7 +7,8 @@ form,
 body,
 html,
 span,
-p {
+p,
+h1 {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -36,7 +37,7 @@ body {
 .cash-calc {
 	max-width: 960px;
 	margin: 2em auto;
-	padding: 2em;
+	padding: 1em 2em 2em;
 	background: #fff;
 	border-radius: 5px;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -46,6 +47,7 @@ body {
 	&__heading {
 		color: $headingColor;
 		font-size: 2rem;
+		margin: .5em 0 .25em 0;
 	}
 	&__description {
 		font-size: 1.2rem;
@@ -86,6 +88,38 @@ body {
 	&__image {
 		max-width: 300px;
 	}
+	&__inputs-results-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+	&__results {
+		text-align: center;
+	}
+	&__input-section {
+		margin: .5em 0 1.25em .5em;
+	}
+	&__submit-container {
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+	}
+	&__submit-btn {
+		font-family: 'Nunito', sans-serif;
+		font-size: 2rem;
+    min-width: 25%;
+    height: 50px;
+    background: darken($primaryColor, 8%);
+    color: #fff;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		&:hover {
+			background: darken($primaryColor, 10%);
+		}
+		&:active {
+			background: darken($primaryColor, 18%);
+		}
+	}
 	&__cash-back-text {
 		@extend .cash-calc__form-label;
 		color: darken($headingColor, 25%);
@@ -99,38 +133,6 @@ body {
 		color: $green;
 	}
 }
-.cash-calc__inputs-results-wrapper {
-	display: flex;
-	flex-direction: column;
-}
-
-// .cash-calc__form-container {
-// 	border: 1px solid blue;
-// }
-
-// .cash-calc__form-item {
-// 	display: block;
-// }
-
-.cash-calc__input-section {
-	margin: .5em 0 1.25em .5em;
-}
-
-.cash-calc__input-section:first-child {
-	margin-top: 1em;
-}
-
-.cash-calc__results {
-	// border: 1px solid green;
-	text-align: center;
-}
-
-.cash-calc__submit-container {
-	margin: 0 auto;
-	width: 100%;
-	text-align: center;
-}
-
 
 @media screen and (min-width: 780px) {
 	.cash-calc__inputs-results-wrapper {

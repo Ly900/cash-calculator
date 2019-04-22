@@ -5,7 +5,8 @@ form,
 body,
 html,
 span,
-p {
+p,
+h1 {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
@@ -23,7 +24,7 @@ body {
 .cash-calc {
   max-width: 960px;
   margin: 2em auto;
-  padding: 2em;
+  padding: 1em 2em 2em;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
@@ -31,7 +32,8 @@ body {
     text-align: center; }
   .cash-calc__heading {
     color: #136158;
-    font-size: 2rem; }
+    font-size: 2rem;
+    margin: .5em 0 .25em 0; }
   .cash-calc__description {
     font-size: 1.2rem;
     margin-bottom: 2em; }
@@ -61,6 +63,31 @@ body {
     text-indent: 10px; }
   .cash-calc__image {
     max-width: 300px; }
+  .cash-calc__inputs-results-wrapper {
+    display: flex;
+    flex-direction: column; }
+  .cash-calc__results {
+    text-align: center; }
+  .cash-calc__input-section {
+    margin: .5em 0 1.25em .5em; }
+  .cash-calc__submit-container {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center; }
+  .cash-calc__submit-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2rem;
+    min-width: 25%;
+    height: 50px;
+    background: #25bfad;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; }
+    .cash-calc__submit-btn:hover {
+      background: #23b7a6; }
+    .cash-calc__submit-btn:active {
+      background: #1d9587; }
   .cash-calc__cash-back-text {
     color: black;
     font-size: 1.8rem;
@@ -70,24 +97,6 @@ body {
     font-size: 4rem;
     font-weight: bolder;
     color: #1B891F; }
-
-.cash-calc__inputs-results-wrapper {
-  display: flex;
-  flex-direction: column; }
-
-.cash-calc__input-section {
-  margin: .5em 0 1.25em .5em; }
-
-.cash-calc__input-section:first-child {
-  margin-top: 1em; }
-
-.cash-calc__results {
-  text-align: center; }
-
-.cash-calc__submit-container {
-  margin: 0 auto;
-  width: 100%;
-  text-align: center; }
 
 @media screen and (min-width: 780px) {
   .cash-calc__inputs-results-wrapper {
