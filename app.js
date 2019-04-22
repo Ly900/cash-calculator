@@ -172,6 +172,9 @@ class CashCalcForm extends React.Component {
 			</div>	
 		}
 
+		let imageSrc = buyingOrSelling === "buying" ? "./buying.png" : "./selling.png";
+		let imageStyle = buyingOrSelling === "buying" ? "" : " cash-calc__image_sell";
+
 		return(
 
 			<div className="cash-calc__form-container">
@@ -197,7 +200,7 @@ class CashCalcForm extends React.Component {
 						<div class="cash-calc__form-block">
 
 							<div className="cash-calc__block cash-calc__results">
-								<img src="./buying.png" className="cash-calc__image"></img>
+								<img src={imageSrc} className={`cash-calc__image${imageStyle}`}></img>
 								<p class="cash-calc__cash-back-text">Cash Back</p>
 								<div class="cash-calc__cash-back-value">${parseInt(this.state.cashBack).toLocaleString("en")}</div>
 							</div>

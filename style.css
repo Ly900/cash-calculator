@@ -80,6 +80,8 @@ body {
     text-indent: 10px; }
   .cash-calc__image {
     max-width: 300px; }
+    .cash-calc__image_sell {
+      max-width: 185px; }
   .cash-calc__inputs-results-wrapper {
     display: flex;
     flex-direction: column;

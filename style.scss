@@ -106,6 +106,9 @@ body {
 	}
 	&__image {
 		max-width: 300px;
+		&_sell {
+			max-width: 185px;
+		}
 	}
 	&__inputs-results-wrapper {
 		display: flex;
