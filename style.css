@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 /* Reset Styles */
-div {
+div,
+form,
+body,
+html,
+span,
+p {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
@@ -16,7 +21,7 @@ body {
 
 /* Component Styles */
 .cash-calc {
-  max-width: 1120px;
+  max-width: 960px;
   margin: 2em auto;
   padding: 2em;
   background: #fff;
@@ -28,13 +33,14 @@ body {
     color: #136158;
     font-size: 2rem; }
   .cash-calc__description {
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    margin-bottom: 2em; }
   .cash-calc__form-container {
     background: white; }
   .cash-calc__form-item {
     display: block;
     margin-bottom: .5em; }
-  .cash-calc__form-label, .cash-calc__cash-back {
+  .cash-calc__form-label, .cash-calc__cash-back-text {
     font-weight: bolder;
     font-size: 1.5rem;
     color: #F05F6E; }
@@ -53,10 +59,17 @@ body {
     border: none;
     border-bottom: 1px solid #E0E0E0;
     text-indent: 10px; }
-  .cash-calc__cash-back {
-    color: #136158;
+  .cash-calc__image {
+    max-width: 300px; }
+  .cash-calc__cash-back-text {
+    color: black;
     font-size: 1.8rem;
-    font-weight: bolder; }
+    font-weight: bolder;
+    margin: 0; }
+  .cash-calc__cash-back-value {
+    font-size: 4rem;
+    font-weight: bolder;
+    color: #1B891F; }
 
 .cash-calc__inputs-results-wrapper {
   display: flex;

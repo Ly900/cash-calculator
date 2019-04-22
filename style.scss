@@ -2,7 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 /* Reset Styles */
-div {
+div,
+form,
+body,
+html,
+span,
+p {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -15,6 +20,7 @@ $headingColor: darken($primaryColor, 30%);
 // $headingColor: #626363;
 $formColor: white;
 $gray: #E0E0E0;
+$green: #1B891F;
 
 html {
 	background: $primaryColor;
@@ -28,7 +34,7 @@ body {
 
 /* Component Styles */
 .cash-calc {
-	max-width: 1120px;
+	max-width: 960px;
 	margin: 2em auto;
 	padding: 2em;
 	background: #fff;
@@ -43,6 +49,7 @@ body {
 	}
 	&__description {
 		font-size: 1.2rem;
+		margin-bottom: 2em;
 	}
 	&__form-container {
 		// border: 1px solid blue;
@@ -76,11 +83,20 @@ body {
 		border-bottom: 1px solid $gray;
 		text-indent: 10px;
 	}
-	&__cash-back {
+	&__image {
+		max-width: 300px;
+	}
+	&__cash-back-text {
 		@extend .cash-calc__form-label;
-		color: $headingColor;
+		color: darken($headingColor, 25%);
 		font-size: 1.8rem;
 		font-weight: bolder;
+		margin: 0;
+	}
+	&__cash-back-value {
+		font-size: 4rem;
+		font-weight: bolder;
+		color: $green;
 	}
 }
 .cash-calc__inputs-results-wrapper {

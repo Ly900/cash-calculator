@@ -197,9 +197,9 @@ class CashCalcForm extends React.Component {
 						<div class="cash-calc__form-block">
 
 							<div className="cash-calc__block cash-calc__results">
-								<img src="https://via.placeholder.com/150"></img>
-								<p class="cash-calc__cash-back">Cash Back</p>
-								<div>${parseInt(this.state.cashBack).toLocaleString("en")}</div>
+								<img src="./buying.png" className="cash-calc__image"></img>
+								<p class="cash-calc__cash-back-text">Cash Back</p>
+								<div class="cash-calc__cash-back-value">${parseInt(this.state.cashBack).toLocaleString("en")}</div>
 							</div>
 
 						</div>
