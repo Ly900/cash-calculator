@@ -23,11 +23,16 @@ body {
 /* Component Styles */
 .cash-calc {
   max-width: 960px;
-  margin: 2em auto;
   padding: 1em 2em 2em;
   background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  margin: .5em auto .5em auto;
+  width: 90%;
+  line-height: 1.2; }
+  @media screen and (min-width: 780px) {
+    .cash-calc {
+      margin: 2em auto;
+      border-radius: 5px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); } }
   .cash-calc__header {
     text-align: center; }
   .cash-calc__heading {
