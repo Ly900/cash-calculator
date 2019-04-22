@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+// @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 /* Reset Styles */
@@ -9,12 +9,17 @@ div {
 }
 
 /* Variables */
-$primaryColor: #71DED4;
-$headingColor: black;
-$formColor: #E8E8E8;
+$primaryColor: #35D8C5;
+$secondaryColor: #F05F6E;
+$headingColor: darken($primaryColor, 30%);
+// $headingColor: #626363;
+$formColor: white;
+$gray: #E0E0E0;
+
 html {
 	background: $primaryColor;
 }
+
 body {
 	font-family: 'Nunito', sans-serif;
 	font-size: 16px;
@@ -47,8 +52,35 @@ body {
 	} 
 	&__form-item {
 		display: block;
-		font-weight: bolder;
 		margin-bottom: .5em;
+	}
+	&__form-label {
+		font-weight: bolder;
+		font-size: 1.5rem;
+		color: $secondaryColor;
+	}
+	&__form-select {
+		font-family: 'Nunito', sans-serif;
+		height: 50px;
+		width: 100%;
+		font-size: 1.5rem;
+    padding: 15px;
+		background: none;
+		border-color: $gray;
+		text-indent: 5px;
+	}
+	&__form-input {
+		width: 100%;
+		font-size: 1.5rem;
+		border: none;
+		border-bottom: 1px solid $gray;
+		text-indent: 10px;
+	}
+	&__cash-back {
+		@extend .cash-calc__form-label;
+		color: $headingColor;
+		font-size: 1.8rem;
+		font-weight: bolder;
 	}
 }
 .cash-calc__inputs-results-wrapper {
@@ -73,7 +105,7 @@ body {
 }
 
 .cash-calc__results {
-	border: 1px solid green;
+	// border: 1px solid green;
 	text-align: center;
 }
 

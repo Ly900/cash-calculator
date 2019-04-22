@@ -31,8 +31,8 @@ const Input = function(props) {
 
 	inputToDisplay = 
 		<div className={"cash-calc__input-section " + (inputClass)}>
-			<label className="cash-calc__form-item">{inputLabel}</label>
-			<input className="cash-calc__form-item" type="text" name={name} value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
+			<label className="cash-calc__form-item cash-calc__form-label">{inputLabel}</label>
+			<input className="cash-calc__form-item cash-calc__form-input" type="text" name={name} value={parseInt(props.price).toLocaleString("en")} onChange={props.onChange}/>
 		</div>;
 
 	return(
@@ -182,8 +182,8 @@ class CashCalcForm extends React.Component {
 						<div class="cash-calc__form-block cash-calc__inputs-block">
 
 							<div className="cash-calc__input-section cash-calc__input-section__prompt">
-								<label className="cash-calc__form-item">Buying or Selling</label>
-								<select className="cash-calc__form-item" onChange={this.handleSelectChange}>
+								<label className="cash-calc__form-item cash-calc__form-label">Buying or Selling</label>
+								<select className="cash-calc__form-item cash-calc__form-select" onChange={this.handleSelectChange}>
 									<option value="Buying">Buying</option>
 									<option value="Selling">Selling</option>
 									<option value="Both">Both</option>
