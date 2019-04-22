@@ -8,9 +8,9 @@ const CashCalculator = function() {
 }
 const CashCalcHeading = function() {
 	return(
-		<div className="cash-calc__heading">
-			<h1>How Much Cash Can You Get Back?</h1>
-			<p>Plug in your info to calculate your earnings.</p>
+		<div className="cash-calc__header">
+			<h1 className="cash-calc__heading">How Much Cash Will You Get Back?</h1>
+			<p className="cash-calc__description">Plug in your info to calculate your earnings.</p>
 		</div>
 	);
 }

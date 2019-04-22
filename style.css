@@ -1,19 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 /* Reset Styles */
 div {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
+/* Variables */
+html {
+  background: #71DED4; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px; }
+
 /* Component Styles */
+.cash-calc {
+  max-width: 1120px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .cash-calc__header {
+    text-align: center; }
+  .cash-calc__heading {
+    color: black;
+    font-size: 2rem; }
+  .cash-calc__description {
+    font-size: 1.2rem; }
+  .cash-calc__form-container {
+    background: #E8E8E8; }
+  .cash-calc__form-item {
+    display: block;
+    font-weight: bolder;
+    margin-bottom: .5em; }
+
 .cash-calc__inputs-results-wrapper {
   display: flex;
   flex-direction: column; }
-
-.cash-calc__form-container {
-  border: 1px solid blue; }
-
-.cash-calc__form-item {
-  display: block; }
 
 .cash-calc__input-section {
   margin: .5em 0 1.25em .5em; }
