@@ -71,6 +71,8 @@ body {
   .cash-calc__inputs-results-wrapper {
     display: flex;
     flex-direction: column; }
+    .cash-calc__inputs-results-wrapper_spacey {
+      margin-bottom: 2em; }
   .cash-calc__results {
     text-align: center; }
   .cash-calc__input-section {

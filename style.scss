@@ -96,6 +96,9 @@ body {
 	&__inputs-results-wrapper {
 		display: flex;
 		flex-direction: column;
+		&_spacey {
+			margin-bottom: 2em;
+		}
 	}
 	&__results {
 		text-align: center;
