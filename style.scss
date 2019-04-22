@@ -1,0 +1,50 @@
+/* Reset Styles */
+div {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Component Styles */
+
+.cash-calc__inputs-results-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.cash-calc__form-container {
+	border: 1px solid blue;
+}
+
+.cash-calc__form-item {
+	display: block;
+}
+
+.cash-calc__input-section {
+	margin: .5em 0 1.25em .5em;
+}
+
+.cash-calc__input-section:first-child {
+	margin-top: 1em;
+}
+
+.cash-calc__results {
+	border: 1px solid green;
+	text-align: center;
+}
+
+.cash-calc__submit-container {
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+}
+
+
+@media screen and (min-width: 780px) {
+	.cash-calc__inputs-results-wrapper {
+		flex-direction: row;
+	}
+	.cash-calc__form-block {
+		flex: 1;
+	}
+}
