@@ -199,7 +199,7 @@ class CashCalcForm extends React.Component {
 							<div className="cash-calc__block cash-calc__results">
 								<img src="https://via.placeholder.com/150"></img>
 								<p class="cash-calc__cash-back">Cash Back</p>
-								<div>{parseInt(this.state.cashBack).toLocaleString("en")}</div>
+								<div>${parseInt(this.state.cashBack).toLocaleString("en")}</div>
 							</div>
 
 						</div>
