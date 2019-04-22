@@ -172,14 +172,12 @@ class CashCalcForm extends React.Component {
 			</div>	
 		}
 
-		let resultsWrapperClass = buyingOrSelling === "both" ? " cash-calc__inputs-results-wrapper_spacey" : "";
-
 		return(
 
 			<div className="cash-calc__form-container">
 				<form className="cash-calc__form" onSubmit={this.handleSubmit}>
 
-					<div className={`cash-calc__inputs-results-wrapper${resultsWrapperClass}`}>
+					<div className={`cash-calc__inputs-results-wrapper`}>
 
 						<div class="cash-calc__form-block cash-calc__inputs-block">
 
