@@ -71,7 +71,6 @@ body {
         margin: unset; } }
   .cash-calc__form-select {
     height: 50px;
-    padding: 15px;
     background: none;
     border-color: #E0E0E0;
     text-indent: 5px; }

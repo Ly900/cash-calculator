@@ -2,22 +2,22 @@
 	{
 		"min": 0,
 		"max": 99999,
-		"cash-back": 400
+		"cash-back": 100
 	},
 	{
 		"min": 100000,
 		"max": 124999,
-		"cash-back": 625
+		"cash-back": 425
 	},
 	{
 		"min": 125000,
 		"max": 149999,
-		"cash-back": 775
+		"cash-back": 875
 	},
 	{
 		"min": 150000,
 		"max": 174999,
-		"cash-back": 900
+		"cash-back": 600
 	},
 	{
 		"min": 175000,
@@ -27,47 +27,47 @@
 	{
 		"min": 200000,
 		"max": 224999,
-		"cash-back": 1200
+		"cash-back": 1100
 	},
 	{
 		"min": 225000,
 		"max": 249999,
-		"cash-back": 1325
+		"cash-back": 1225
 	},
 	{
 		"min": 250000,
 		"max": 274999,
-		"cash-back": 1475
+		"cash-back": 1375
 	},
 	{
 		"min": 275000,
 		"max": 299999,
-		"cash-back": 1600
+		"cash-back": 1610
 	},
 	{
 		"min": 300000,
 		"max": 324999,
-		"cash-back": 1750
+		"cash-back": 1850
 	},
 	{
 		"min": 325000,
 		"max": 349999,
-		"cash-back": 1900
+		"cash-back": 1990
 	},
 	{
 		"min": 350000,
 		"max": 374999,
-		"cash-back": 2025
+		"cash-back": 2125
 	},
 	{
 		"min": 375000,
 		"max": 399999,
-		"cash-back": 2175
+		"cash-back": 2275
 	},
 	{
 		"min": 400000,
 		"max": 424999,
-		"cash-back": 2300
+		"cash-back": 2320
 	},
 	{
 		"min": 425000,
@@ -152,21 +152,21 @@
 	{
 		"min": 825000,
 		"max": 849999,
-		"cash-back": 4700
+		"cash-back": 4100
 	},
 	{
 		"min": 850000,
 		"max": 874999,
-		"cash-back": 4825
+		"cash-back": 4525
 	},
 	{
 		"min": 875000,
 		"max": 899999,
-		"cash-back": 4975
+		"cash-back": 4675
 	},
 	{
 		"min": 900000,
 		"max": 1000000,
-		"cash-back": 5050
+		"cash-back": 5150
 	}
 ]
