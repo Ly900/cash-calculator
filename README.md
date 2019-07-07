@@ -2,7 +2,8 @@
 A calculator that helps you calculate how much cash you would get back if you are buying a home, selling a home, or both.
 
 ## Features
-- React 16 with functional and class components
+- React 16.8.6
+- React functional and class components
 - ES6
 - Babel 6.26.0
 - Sass
