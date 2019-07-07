@@ -3,6 +3,7 @@ A calculator that helps you calculate how much cash you would get back if you ar
 
 ## Features
 - React 16 with functional and class components
+- ES6
 - Babel 6.26.0
 - Sass
 - Flexbox
