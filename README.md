@@ -11,5 +11,6 @@ A calculator that helps you calculate how much cash you would get back if you ar
 - Keyboard accessible
 - Mobile first
 - Responsive
+- Created 2019
 
 <center><img src="/cash-calculator-screenshot.png" alt="Cash Calculator" width=100%></center>
